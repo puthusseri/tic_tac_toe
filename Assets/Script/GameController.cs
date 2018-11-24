@@ -5,6 +5,8 @@ using System.Collections;
 public class GameController : MonoBehaviour {
 
     public Text[] buttonList;
+    public GameObject gameOverPanel;
+    public Text gameOverText;
 
     private string playerSide;
 
@@ -12,6 +14,7 @@ public class GameController : MonoBehaviour {
     {
         SetGameControllerReferenceOnButtons();
         playerSide = "X";
+        gameOverPanel.SetActive(false);
     }
 
     void SetGameControllerReferenceOnButtons ()
@@ -64,14 +67,11 @@ public class GameController : MonoBehaviour {
         {
             GameOver();
         }
-
         if (buttonList [2].text == playerSide && buttonList [4].text == playerSide && buttonList [6].text == playerSide)
         {
             GameOver();
         }
-
         ChangeSides();
-
     }
 
     void ChangeSides ()
@@ -85,5 +85,7 @@ public class GameController : MonoBehaviour {
         {
             buttonList[i].GetComponentInParent<Button>().interactable = false;
         }
+        gameOverPanel.SetActive(true);
+        gameOverText.text = playerSide + " Wins!";
     }
 }
