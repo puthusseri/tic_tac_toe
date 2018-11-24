@@ -2,6 +2,21 @@
 using UnityEngine.UI;
 using System.Collections;
 
+[System.Serializable]
+public class PlayerClass{
+	
+	public Color PlayerColor;
+	public Color textColor;
+	
+	
+	
+	//Start here........................
+}
+[System.Serializable]
+public class Player {
+	public Image pannel;
+	public Text text;
+}
 public class GameController : MonoBehaviour {
 
    public Text[] buttonList;
