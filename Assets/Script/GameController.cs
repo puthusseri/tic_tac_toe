@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour {
 
     public void EndTurn ()
     {
+
         if (buttonList [0].text == playerSide && buttonList [1].text == playerSide && buttonList [2].text == playerSide)
         {
             GameOver();
@@ -68,6 +69,14 @@ public class GameController : MonoBehaviour {
         {
             GameOver();
         }
+
+        ChangeSides();
+
+    }
+
+    void ChangeSides ()
+    {
+        playerSide = (playerSide == "X") ? "O" : "X";
     }
 
     void GameOver ()
